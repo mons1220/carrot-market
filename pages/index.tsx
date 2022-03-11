@@ -2,9 +2,35 @@ import type { NextPage } from 'next'
 
 const Home: NextPage = () => {
   return (
-    <div className="bg-slate-400 py-20 px-10 grid gap-10 min-h-screen">
+    <div className="bg-slate-400 py-20 px-10 
+    grid gap-10 lg:grid-cols-2 xl:grid-cols-3 
+    min-h-screen xl:place-content-center">
       
-      <div className="bg-white p-6 rounded-3xl shadow-xl">
+      <div className="bg-white flex flex-col justify-between p-6 rounded-3xl shadow-xl">
+        <span className='font-semibold text-3xl'>Select Item</span>
+        <ul>
+          {[1, 2, 3, 4, 5].map((i) => (
+            <li className='flex justify-between my-2 odd:bg-blue-50 even:bg-yellow-500'>
+              <span className='text-gray-500'>Grey Chair</span>
+              <span className='font-semibold'>$19</span>
+            </li>
+          ))}
+        </ul>
+        <div className='flex justify-between mt-2 pt-2 border-t-2 border-dashed'>
+          <span>Total</span>
+          <span className='font-semibold'>$10</span>
+        </div>
+        <button className='mt-5 bg-blue-500 text-white 
+        p-3 text-center rounded-xl w-2/4 mx-auto block
+        hover:bg-teal-500 hover:text-black
+        active:bg-yellow-500 focus:bg-red-500
+        '>
+          Checkout
+        </button>
+      </div>
+
+      <div className="bg-white sm:bg-red-400 md:bg-teal-400 lg:bg-indigo-400 xl:bg-yellow-400 2xl:bg-pink-500
+      p-6 rounded-3xl shadow-xl">
         <span className='font-semibold text-3xl'>Select Item</span>
         <ul>
           {[1, 2, 3, 4, 5].map((i) => (
@@ -32,8 +58,9 @@ const Home: NextPage = () => {
         </button>
       </div>
 
-      <div className="bg-white overflow-hidden rounded-3xl shadow-xl">
-        <div className='bg-blue-500 p-6 pb-14'>
+      <div className="bg-white overflow-hidden rounded-3xl shadow-xl 
+      group">
+        <div className='portrait:bg-indigo-600 landscape:bg-teal-500 p-6 pb-14 xl:pb-48'>
           <span className='text-white text-2xl'>Profile</span>
         </div>
         <div className='rounded-3xl p-6 bg-white relative -top-5'>
@@ -42,7 +69,7 @@ const Home: NextPage = () => {
               <span className='text-sm text-gray-500'>Orders</span>
               <span className='font-medium'>340</span>
             </div>
-            <div className='h-24 w-24 bg-red-400 rounded-full' />
+            <div className='h-24 w-24 bg-zinc-400 rounded-full group-hover:bg-red-300 transition-colors' />
             <div className='flex flex-col items-center'>
               <span className='text-sm text-gray-500'>Spent</span>
               <span className='font-medium'>$340</span>
@@ -55,7 +82,7 @@ const Home: NextPage = () => {
         </div>
       </div>
 
-      <div className="bg-white p-10 rounded-3xl shadow-xl">
+      <div className="bg-white p-10 rounded-3xl shadow-xl lg:col-span-2 xl:col-span-1">
         <div className='flex mb-5 justify-between itmems-center'>
           <span>←</span>
           <div className='space-x-3'>
@@ -88,7 +115,57 @@ const Home: NextPage = () => {
           </div>
         </div>
       </div>
+            
+      <div className='bg-white p-5 rounded-3xl shadow-xl'>
+        <form className='flex flex-col space-y-2 p-5'>
+          <input type='text' required placeholder='Username'
+          className='border p-1 peer border-gray-400 rounded-md'>
+          </input>
+          <span className='hidden peer-invalid:block 
+          peer-invalid:text-red-500'>This input is invalid</span>
+          <span className='hidden peer-valid:block 
+          peer-valid:text-teal-500'>Awesome Username!</span>
+          <input type='submit' value="Login" className='bg-gray-500'></input>
+        </form>
+      </div>
+      
+      <div className='bg-white p-5 rounded-3xl shadow-xl'>
+        <div className='flex flex-col space-y-2 p-5'>
+          <details className='select-none open:text-white open:bg-indigo-400'>
+            <summary className='select-none cursor-pointer'>What is my favorate food</summary>
+            <span>김치</span>
+          </details>
+        </div>
+      </div>
+      
+      <div className='bg-white p-5 rounded-3xl shadow-xl'>
+        <div className='flex flex-col space-y-2 p-5'>
+          <ul className='list-decimal marker:text-teal-500'>
+            <li>hi</li>
+            <li>hi</li>
+            <li>hi</li>
+          </ul>          
+        </div>
+      </div>
 
+      <div className='bg-white p-5 rounded-3xl shadow-xl'>
+        <input type='file' 
+        className='file:border-0 file:rounded-xl file:px-3 file:py-1
+        file:text-white file:bg-purple-400 
+        file:transition-colors file:cursor-pointer
+        file:hover:text-purple-400 file:hover:bg-white 
+        file:hover:border-purple-400 file:hover:border'/>
+      </div>
+
+      <div className='bg-white p-5 rounded-3xl shadow-xl'>
+        <div className='flex flex-col space-y-2 p-5'>
+          <p className='first-letter:text-7xl 
+          first-letter:hover:text-purple-400
+          first-line:hover:bg-red-300'>Hello every body</p>
+        </div>
+      </div>
+
+    
     </div>
   );
 }
